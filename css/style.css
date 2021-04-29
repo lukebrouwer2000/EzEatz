@@ -1,0 +1,97 @@
+/*import fonts from google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gugi&family=Lato:wght@300;400&family=New+Tegomin&family=Original+Surfer&family=Roboto&family=Roboto+Condensed&family=Sofia&display=swap');
+
+/*create variables for some fonts and colors*/
+:root{
+    --light-blue: #99ccff;
+    --light-purple: #ccccff;
+    --light-grey: #9999cc;
+    --purple: #cc99ff;
+    --roboto: "Roboto", sans-sherif;
+    --gugi: "Gugi", cursive;
+    --sofia: "Sofia", cursive
+}
+
+/*global class that can be accessed w html file*/
+.light-blue{
+    color:var(--light-blue);
+}
+
+/*Overide previous css bg color*/
+.bg-light-blue{
+    background-color: var(--light-blue) !important;
+}
+
+.light-purple{
+    color:var(--light-purple);
+}
+
+.font-roboto{
+    font-family:var(--roboto);
+}
+
+/*change the background&font*/
+/*header*/
+header{
+    background-color: var(--light-blue);
+    font-family:var(--roboto);
+}
+
+header .site-title{
+    font-family:var(--gugi);
+}
+
+.header-links a{
+    font-size:0.9em;
+    text-decoration:none;
+    color:white;
+}
+
+#nav-home{
+
+    background-color:var(--light-blue);
+}
+
+#nav-home-tab{
+    font-family:var(--roboto);
+}
+
+#nav-profile-tab{
+    font-family:var(--roboto);
+}
+
+
+body{
+    background-color:var(--light-blue) !important;
+}
+
+#search{
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    padding-left: 10.5px !important;
+}
+
+#list{
+    font-family: var(--roboto);
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+header .meals{
+    font-size:1.5em;
+    font-family:var(--sofia);
+}
+
+.star {
+    font-size: 15px;
+      color:gold;
+  }
+  
+  .heart {
+    font-size: 15px;
+      color:red;
+  }
+
+  #meals{
+      font-family:var(--roboto);
+  }
