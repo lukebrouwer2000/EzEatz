@@ -87,11 +87,16 @@ header .meals{
       color:gold;
   }
   
-  .heart {
-    font-size: 15px;
-      color:red;
-  }
+.heart {
+    font-size: 20px;
+    color:red;
+    padding:10px !important;
+}
 
-  #meals{
-      font-family:var(--roboto);
-  }
+#meals{
+    font-family:var(--roboto);
+}
+
+#favlist{
+    margin-right:800px;
+}
