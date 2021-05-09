@@ -6,6 +6,8 @@
     --light-blue: #99ccff;
     --light-purple: #ccccff;
     --light-grey: #9999cc;
+    --light-yellow:#FFFFE0;
+    --light-orange:#FED8B1;
     --purple: #cc99ff;
     --roboto: "Roboto", sans-sherif;
     --gugi: "Gugi", cursive;
@@ -14,12 +16,12 @@
 
 /*global class that can be accessed w html file*/
 .light-blue{
-    color:var(--light-blue);
+    color:var(--light-orange);
 }
 
 /*Overide previous css bg color*/
 .bg-light-blue{
-    background-color: var(--light-blue) !important;
+    background-color: var(--light-orange) !important;
 }
 
 .light-purple{
@@ -33,23 +35,24 @@
 /*change the background&font*/
 /*header*/
 header{
-    background-color: var(--light-blue);
+    background-color: var(--light-orange);
     font-family:var(--roboto);
 }
 
 header .site-title{
     font-family:var(--gugi);
+    font-size:5.0em;
 }
 
 .header-links a{
     font-size:0.9em;
     text-decoration:none;
-    color:white;
+    color:black;
 }
 
 #nav-home{
 
-    background-color:var(--light-blue);
+    background-color:var(--light-orange);
 }
 
 #nav-home-tab{
@@ -62,7 +65,7 @@ header .site-title{
 
 
 body{
-    background-color:var(--light-blue) !important;
+    background-color:var(--light-orange) !important;
 }
 
 #search{
@@ -95,8 +98,32 @@ header .meals{
 
 #meals{
     font-family:var(--roboto);
+    margin-top: 11px;
 }
 
 #favlist{
     margin-right:800px;
+}
+
+#mealsfound{
+    margin-top:0px;
+}
+
+#viewingr{
+    width:50% !important;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+#findmeals{
+    width:50% !important;
+    margin-left:8px;
+}
+
+#nav-tab{
+    color:black;
+}
+
+#toprow{
+    color:black;
 }

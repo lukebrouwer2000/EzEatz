@@ -37,9 +37,10 @@
 
     <header>
       <div class="container">
-        <div class="row">
+        <div class="row" id="toprow">
           <div class="col-md-4 col-sm-12 col-12 text-left">
-            <h2 class="my-md-3 site-title text-white">EzEatz</h2>
+          </br>
+            <h2 class="my-md-3 site-title text-black">EzEatz</h2>
           </div>
           <div class="col-md-4 col-12 text-center"></div>
           <div class="col-md-4 col-12 text-right">
@@ -89,6 +90,8 @@
             role="tabpanel"
             aria-labelledby="nav-home-tab"
           >
+          <div class="row">
+          <div class="col-md-6 col-sm-6 col-6 text-left">
             <div class="search_select_box" id="search">
               <select
                 class="selectpicker show-tick"
@@ -149,6 +152,26 @@
                   <option>Frozen peas</option>
                 </optgroup>
               </select>
+            
+              <div class="row">
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    id="viewingr"
+                    onclick="getList()"
+                  >
+                    View Selected Ingredients
+                  </button>
+                  <div id="list"></div>
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark"
+                    id="findmeals"
+                    onclick="getMeals()"
+                  >
+                    Find Meals!
+                  </button>
+              </div>
               <script>
                 function getList() {
                   var values = $("#choices").val();
@@ -174,25 +197,17 @@
                 }
               </script>
             </div>
+          </div>
+          <div class= "col-md-6 col-sm-6 col-6 text-left">
+            <div id="meals"></div>
+          </div>
+          </div>
 
+            
             <div class="container-fluid" id="ingredients">
               <div class="row">
                 <div class="col-md-6 col-sm-6 col-6 text-left" id="view">
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary"
-                    onclick="getList()"
-                  >
-                    View Selected Ingredients
-                  </button>
-                  <div id="list"></div>
-                  <button
-                    type="button"
-                    class="btn btn-outline-dark"
-                    onclick="getMeals()"
-                  >
-                    Find Meals!
-                  </button>
+                  <!--view ing-->
                   <!--onclick = call function to find meals from db-->
 
                   <script>
@@ -249,10 +264,7 @@
                   </script>
                 </div>
 
-                <div class="col-md-6 col-sm-6 col-6 text-left">
-                  <!--Space for meals to be printed doc.getElementByID("meals").innerHTML-->
-                  <div id="meals"></div>
-                </div>
+                
               </div>
             </div>
           </div>
