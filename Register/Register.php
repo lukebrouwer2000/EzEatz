@@ -1,6 +1,4 @@
 <?php
 
-
-
-    include "ConnectDatabase.php";
+    include "../ConnectDatabase.php";
 ?>
