@@ -137,7 +137,7 @@ mysqli_close($mysqli);
               </div>
               <input type = "submit" value = "Sign In">
               <div class = "signup_link">
-                Need an account? <a href="../Registration/Registration.php">Sign up</a>
+                Need an account? <a href="../Register/Register.php">Sign up</a>
             </form>
               
             </p>
@@ -372,7 +372,7 @@ mysqli_close($mysqli);
 
       $(".heart.fa").click(function () {
         $(this).toggleClass("fa-heart fa-heart-o");
-        console.log("Wtf");
+        
       });
     </script>
 
