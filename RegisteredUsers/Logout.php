@@ -7,6 +7,7 @@ session_destroy();
 
 header('Location: ../MainPage/index.php');
 
+mysqli_close($mysqli);
 exit;
 
 
