@@ -10,12 +10,12 @@ if (isset($_POST["userName"]) && isset($_POST["userPassword"]))
 	if ($_POST["userName"] && $_POST["userPassword"])
 	{
 
-        
+
         // our variables from index.php Sign In
         $userName = $_POST["userName"];
         $userPassword = $_POST["userPassword"];
 
-        // vestigial to check if we are pulling 
+        // vestigial to check if we are pulling
         // accurate information from the form
         // echo "userName = " . $userName;
         // echo "userPassword = " . $userPassword;
@@ -33,10 +33,10 @@ if (isset($_POST["userName"]) && isset($_POST["userPassword"]))
             try {
 
               echo '<br>';
-  
+
               // grab the results as a row in the database
               $row = mysqli_fetch_assoc($results);
-              
+
               if ($row == null)
               {
                 // popup so user knows they entered invalid username
@@ -49,23 +49,23 @@ if (isset($_POST["userName"]) && isset($_POST["userPassword"]))
                 $_SESSION["userName"] = $_POST["userName"];
                 $_SESSION["userPassword"] = $_POST["userPassword"];
                 header('Location: ../RegisteredUsers/RegisteredIndex.php');
-                
+
               }
             }
             catch (Exception $e)
             {
               echo "Caught exception: ",  $e->getMessage(), "\n";
             }
-            
+
 
         }
-        else 
+        else
         {
             echo '<script>alert("Please enter a valid username and password.")</script>';
         }
     }
-} 
-   
+}
+
 ob_end_flush();
 
 // please close the connection after you're done
@@ -118,8 +118,8 @@ mysqli_close($mysqli);
           <div class="col-md-4 col-12 text-center"></div>
           <div class="col-md-4 col-12 text-right">
             <p class="my-md-4 header-links">
-              
-          
+
+
 
               <!-- <a href="index.php" class="px-2">Sign In</a>
               <a href="" class="px-2">Create an Account</a>
@@ -139,7 +139,7 @@ mysqli_close($mysqli);
               <div class = "signup_link">
                 Need an account? <a href="../Registration/Registration.php">Sign up</a>
             </form>
-              
+
             </p>
           </div>
         </div>
@@ -191,6 +191,7 @@ mysqli_close($mysqli);
                 title="Select Ingredients"
                 multiple
                 data-actions-box="true"
+								onchange="getList()"
               >
                 <optgroup label="Condiments">
                   <option>Vinegars</option>
@@ -301,24 +302,30 @@ mysqli_close($mysqli);
 
                       var ingredients = $("#choices").val();
 
-                      if (ingredients.length > 0) {
-                        document.getElementById("meals").innerHTML +=
-                          "MEALS FOUND:" + "</br>";
-                      }
+                      // if (ingredients.length > 0) {
+                      //   document.getElementById("meals").innerHTML +=
+                      //     "MEALS FOUND:" + "</br>";
+                      // }
 
                       var i = 0;
+											var found = 1;
                       while (i < ingredients.length) {
                         for (var i = 0; i < ingredients.length; i++) {
                           /*
                            document.getElementById("meals").innerHTML+="<a href='#'' class='meal' id="+i+" >A recipe or meal "+i+" </a>";
                             document.getElementById("meals").innerHTML+="&nbsp; &nbsp; &nbsp;"+"<button class='btn btn-outline-dark' id="+i+" onclick='addFav()'>Favorite</button>"+"</br>";
                             */
-                          
-                          document.getElementById("meals").innerHTML +=
-                            "<div class='card' style='width: 25rem;'><img src='assets/mcdonalds-chicken-nuggets-recipe.jpg' class='card-img-top' alt='AssociatedImage' padding='20px'><div class='card-body '><h5 class='card-title'>Meal/Recipe Name</h5><p class='card-text'>Insert nutrition facts</br> cooking time</br> food category?.</p><a href='#' class='btn btn-primary'>Link to Recipe</a><i class='heart fa fa-heart-o' id='heart'></i></div></div>";
-                          $(".heart.fa").click(function () {
+													if(ingredients[i] == "Frozen chicken")
+													{
+														document.getElementById("meals").innerHTML +=
+		                          "MEALS FOUND:" + "</br>";
+                          	document.getElementById("meals").innerHTML +=
+                            "<div class='card' style='width: 25rem;'><img src='assets/mcdonalds-chicken-nuggets-recipe.jpg' class='card-img-top' alt='AssociatedImage' padding='20px'><div class='card-body '><h5 class='card-title'>Chicken Nuggets</h5><p class='card-text'>Calories - 410 Sodium - 750mg Protein - 26g</br>Cooking Time - 35min</br>Food Category - Meat </p><a href='#' class='btn btn-primary'>Link to Recipe</a><i class='heart fa fa-heart-o' id='heart'></i></div></div>";
+                          	$(".heart.fa").click(function () {
                             $(this).toggleClass("fa-heart fa-heart-o");
                           });
+														found++;
+											   	}
 
                           document.addEventListener(
                             "DOMContentLoaded",
@@ -337,6 +344,11 @@ mysqli_close($mysqli);
                           }
                         }
                       }
+											if(found == 1)
+											{
+												document.getElementById("meals").innerHTML +=
+													"NO MEALS FOUND" + "</br>";
+											}
                     }
                   </script>
                 </div>
@@ -400,5 +412,3 @@ mysqli_close($mysqli);
     ></script>
   </body>
 </html>
-
-
