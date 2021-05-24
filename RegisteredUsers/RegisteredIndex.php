@@ -1,7 +1,7 @@
 <?php
     include "../ConnectDatabase.php";
     session_start();
-    
+
 
     // make sure our session is clean
     // echo $_SESSION["userName"];
@@ -11,7 +11,7 @@
     $userPassword = $_SESSION["userPassword"];
 
 
-    
+
     mysqli_close($mysqli);
 ?>
 
@@ -45,7 +45,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"
     />
-   
+
     <link rel="stylesheet" href="../css/style.css" />
   </head>
 
@@ -61,23 +61,23 @@
           <div class="col-md-4 col-12 text-center"></div>
           <div class="col-md-4 col-12 text-right">
             <p class="my-md-4 header-links">
-              
-          
 
-            <a id="logoutbutton" href="logout.php">Logout</a>
-              <!-- <form method = "post">
-			
+
+
+            <a id="logoutbutton" class= "txt_field" href="logout.php">Logout</a>
+              <form method = "post">
+
               <div class = "txt_field">
-                <input type = "text" name = "userName" placeholder="Username" required>
+
               </div>
               <div class = "txt_field">
-                <input type = "password" name= "userPassword" placeholder="Password" required>
+
               </div>
-              <input type = "submit" value = "Sign In">
+
               <div class = "signup_link">
-                Need an account? <a href="../Register/Register.php">Sign up</a>
-            </form> -->
-              
+
+            </form>
+
             </p>
           </div>
         </div>
@@ -129,6 +129,7 @@
                 title="Select Ingredients"
                 multiple
                 data-actions-box="true"
+                onchange="getList()"
               >
                 <optgroup label="Condiments">
                   <option>Vinegars</option>
@@ -179,30 +180,7 @@
                   <option>Frozen peas</option>
                 </optgroup>
               </select>
-              <script>
-                function getList() {
-                  var values = $("#choices").val();
-                  var i = 0;
 
-                  var htmlstring = document.getElementById("list").innerHTML;
-                  htmlstring = htmlstring.trim
-                    ? htmlstring.trim()
-                    : htmlstring.replace(/^\s+/, "");
-                  if (htmlstring != "") {
-                    document.getElementById("list").innerHTML = " ";
-                  }
-
-                  if (values.length == 0) {
-                    document.getElementById("list").innerHTML =
-                      "Nothing selected.";
-                  }
-                  while (i < values.length) {
-                    document.getElementById("list").innerHTML +=
-                      values[i] + "</br>";
-                    i++;
-                  }
-                }
-              </script>
             </div>
 
             <div class="container-fluid" id="ingredients">
@@ -225,60 +203,9 @@
                   </button>
                   <!--onclick = call function to find meals from db-->
 
-                  <script>
-                    function getMeals() {
-                      /*so meals arent repeated if button clicked again*/
-                      var htmlstring = document.getElementById("meals")
-                        .innerHTML;
-                      htmlstring = htmlstring.trim
-                        ? htmlstring.trim()
-                        : htmlstring.replace(/^\s+/, "");
-                      if (htmlstring != "") {
-                        document.getElementById("meals").innerHTML = " ";
-                      }
 
-                      var ingredients = $("#choices").val();
-
-                      if (ingredients.length > 0) {
-                        document.getElementById("meals").innerHTML +=
-                          "MEALS FOUND:" + "</br>";
-                      }
-
-                      var i = 0;
-                      while (i < ingredients.length) {
-                        for (var i = 0; i < ingredients.length; i++) {
-                          /*
-                           document.getElementById("meals").innerHTML+="<a href='#'' class='meal' id="+i+" >A recipe or meal "+i+" </a>";
-                            document.getElementById("meals").innerHTML+="&nbsp; &nbsp; &nbsp;"+"<button class='btn btn-outline-dark' id="+i+" onclick='addFav()'>Favorite</button>"+"</br>";
-                            */
-                          
-                          document.getElementById("meals").innerHTML +=
-                            "<div class='card' style='width: 25rem;'><img src='assets/mcdonalds-chicken-nuggets-recipe.jpg' class='card-img-top' alt='AssociatedImage' padding='20px'><div class='card-body '><h5 class='card-title'>Meal/Recipe Name</h5><p class='card-text'>Insert nutrition facts</br> cooking time</br> food category?.</p><a href='#' class='btn btn-primary'>Link to Recipe</a><i class='heart fa fa-heart-o' id='heart'></i></div></div>";
-                          $(".heart.fa").click(function () {
-                            $(this).toggleClass("fa-heart fa-heart-o");
-                          });
-
-                          document.addEventListener(
-                            "DOMContentLoaded",
-                            function() {
-                              $("nav li").on("click", function() {
-                                // we are letting the li bind to the event
-                                alert("This works, though");
-                              });
-                            }
-                          );
-
-                          function addFav() {
-                            console.log("Hello");
-                            document.getElementById("favlist").innerHTML +=
-                              "fav item";
-                          }
-                        }
-                      }
-                    }
-                  </script>
                 </div>
-
+                  <script src="RegisteredIndex.js"></script>
                 <div class="col-md-6 col-sm-6 col-6 text-left">
                   <!--Space for meals to be printed doc.getElementByID("meals").innerHTML-->
                   <div id="meals"></div>
@@ -302,17 +229,6 @@
     <!--header-->
     <main></main>
     <footer></footer>
-
-    <script>
-      $(".star.glyphicon").click(function () {
-        $(this).find("i").toggleClass("glyphicon-star glyphicon-star-empty");
-      });
-
-      $(".heart.fa").click(function () {
-        $(this).toggleClass("fa-heart fa-heart-o");
-        console.log("Wtf");
-      });
-    </script>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
