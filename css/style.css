@@ -68,16 +68,13 @@ body{
     background-color:var(--light-orange) !important;
 }
 
-#search{
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-    padding-left: 10.5px !important;
-}
+
 
 #list{
     font-family: var(--roboto);
     padding-top: 5px !important;
     padding-bottom: 5px !important;
+    padding-left:15px !important;
 }
 
 header .meals{
@@ -97,8 +94,9 @@ header .meals{
 }
 
 #meals{
-    font-family:var(--roboto);
+    font-family:var(--sofia);
     margin-top: 11px;
+    margin-left: 15px;
 }
 
 #favlist{
@@ -110,14 +108,26 @@ header .meals{
 }
 
 #viewingr{
-    width:50% !important;
-    margin-left: 8px;
+    margin-left: 15px;
     margin-top: 8px;
 }
 
 #findmeals{
-    width:50% !important;
-    margin-left:8px;
+    margin-left:15px !important;
+    margin-top: 8px;
+
+}
+
+#search{
+    margin-left:15px !important;
+    margin-top: 8px !important;
+    
+}
+
+#filter{
+    margin-left:15px !important;
+    margin-top: 8px !important;
+
 }
 
 #nav-tab{
@@ -127,6 +137,7 @@ header .meals{
 #toprow{
     color:black;
 }
+
 
 #logoutbutton
 {

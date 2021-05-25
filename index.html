@@ -88,125 +88,163 @@
             class="tab-pane fade show active"
             id="nav-home"
             role="tabpanel"
-            aria-labelledby="nav-home-tab"
+              aria-labelledby="nav-home-tab"
           >
-          <div class="row">
-          <div class="col-md-6 col-sm-6 col-6 text-left">
-            <div class="search_select_box" id="search">
-              <select
-                class="selectpicker show-tick"
-                id="choices"
-                ata-width="50%"
-                data-live-search="true"
-                multiple
-                title="Select Ingredients"
-                multiple
-                data-actions-box="true"
-              >
-                <optgroup label="Condiments">
-                  <option>Vinegars</option>
-                  <option>Soy Sauce</option>
-                  <option>Hot Sauce</option>
-                  <option>Honey</option>
-                  <option>Vanilla extract</option>
-                  <option>Almond extract</option>
-                </optgroup>
-                <optgroup label="Basics">
-                  <option>Salt</option>
-                  <option>Pepper</option>
-                  <option>Olive oil</option>
-                  <option>Vegetable oil</option>
-                  <option>All-purpose flour</option>
-                  <option>Granulated sugar</option>
-                </optgroup>
-                <optgroup label="Canned items">
-                  <option>Chicken stock/broth</option>
-                  <option>Beef stock/broth</option>
-                  <option>Canned tomatoes</option>
-                  <option>Tomato Paste</option>
-                  <option>Tomato Sauce</option>
-                  <option>Marinara Sauce</option>
-                  <option>Canned beans</option>
-                  <option>Canned tuna</option>
-                </optgroup>
-                <optgroup label="Starches">
-                  <option>Pasta</option>
-                  <option>Rice</option>
-                  <option>Lentils</option>
-                  <option>Dried bread crumbs</option>
-                  <option>Cornstarch</option>
-                </optgroup>
-                <optgroup label="Dairy">
-                  <option>Eggs</option>
-                  <option>Milk</option>
-                  <option>Butter</option>
-                  <option>Parmesan cheese</option>
-                  <option>Cream cheese</option>
-                  <option>Other cheese</option>
-                </optgroup>
-                <optgroup label="Frozens">
-                  <option>Frozen beef</option>
-                  <option>Frozen chicken</option>
-                  <option>Frozen spinach</option>
-                  <option>Frozen corn</option>
-                  <option>Frozen peas</option>
-                </optgroup>
-              </select>
-            
-              <div class="row">
-                <button
-                    type="button"
-                    class="btn btn-outline-secondary"
-                    id="viewingr"
-                    onclick="getList()"
-                  >
-                    View Selected Ingredients
-                  </button>
-                  <div id="list"></div>
-                  <button
-                    type="button"
-                    class="btn btn-outline-dark"
-                    id="findmeals"
-                    onclick="getMeals()"
-                  >
-                    Find Meals!
-                  </button>
+            <div class="row">
+              <div class="col-12 col-md-12 text-left">
+                <div class="row">
+                  <div class="col-2 col-md-2 text-left">
+                    <div class="search_select_box" id="search">
+                      <select
+                        class="selectpicker show-tick"
+                        id="choices"
+                        ata-width="50%"
+                        data-live-search="true"
+                        multiple
+                        title="Select Ingredient(s)"
+                        multiple
+                        data-actions-box="true"
+                      >
+                      <optgroup label="Condiments">
+                        <option>Vinegars</option>
+                        <option>Soy Sauce</option>
+                        <option>Hot Sauce</option>
+                        <option>Honey</option>
+                        <option>Vanilla extract</option>
+                        <option>Almond extract</option>
+                      </optgroup>
+                      <optgroup label="Basics">
+                        <option>Salt</option>
+                        <option>Pepper</option>
+                        <option>Olive oil</option>
+                        <option>Vegetable oil</option>
+                        <option>All-purpose flour</option>
+                        <option>Granulated sugar</option>
+                      </optgroup>
+                      <optgroup label="Canned items">
+                        <option>Chicken stock/broth</option>
+                        <option>Beef stock/broth</option>
+                        <option>Canned tomatoes</option>
+                        <option>Tomato Paste</option>
+                        <option>Tomato Sauce</option>
+                        <option>Marinara Sauce</option>
+                        <option>Canned beans</option>
+                        <option>Canned tuna</option>
+                      </optgroup>
+                      <optgroup label="Starches">
+                        <option>Pasta</option>
+                        <option>Rice</option>
+                        <option>Lentils</option>
+                        <option>Dried bread crumbs</option>
+                        <option>Cornstarch</option>
+                      </optgroup>
+                      <optgroup label="Dairy">
+                        <option>Eggs</option>
+                        <option>Milk</option>
+                        <option>Butter</option>
+                        <option>Parmesan cheese</option>
+                        <option>Cream cheese</option>
+                        <option>Other cheese</option>
+                      </optgroup>
+                      <optgroup label="Frozens">
+                        <option>Frozen beef</option>
+                        <option>Frozen chicken</option>
+                        <option>Frozen spinach</option>
+                        <option>Frozen corn</option>
+                        <option>Frozen peas</option>
+                      </optgroup>
+                      </select>
+                    </div> 
+                    
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary"
+                        id="viewingr"
+                        onclick="getList()"
+                      >
+                        View Selected Ingredient(s)
+                      </button>
+                    </div>
+                    
+                    <div id="list"></div>
+                  </div>    
+
+                  <div class="col-2 col-md-2 text-left">
+                    <!--insert filters-->
+                    <div class="search_select_box" id="filter">
+                      <select
+                        class="selectpicker show-tick"
+                        id="filters"
+                        ata-width="50%"
+                        data-live-search="true"
+                        multiple
+                        title="Select Filter(s)"
+                        multiple
+                        data-actions-box="true"
+                      >
+                      </select>
+                    </div>
+
+                  </div>
+                  <!--close row for col-3 here-->
+                
+                  <!--new row for find meals-->
+                  <div class="col-3 col-md-3">
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-outline-dark"
+                        id="findmeals"
+                        onclick="getMeals()"
+                      >
+                        Find Meals!
+                      </button>
+                    </div>
+                    <!--insert find meals-->
+                  </div>
+                </div>  
+
+
+                  <script>
+                    function getList() {
+                      var values = $("#choices").val();
+                      var i = 0;
+
+                      var htmlstring = document.getElementById("list").innerHTML;
+                      htmlstring = htmlstring.trim
+                        ? htmlstring.trim()
+                        : htmlstring.replace(/^\s+/, "");
+                      if (htmlstring != "") {
+                        document.getElementById("list").innerHTML = " ";
+                      }
+
+                      if (values.length == 0) {
+                        document.getElementById("list").innerHTML =
+                          "Nothing selected.";
+                      }
+                      while (i < values.length) {
+                        document.getElementById("list").innerHTML +=
+                          values[i] + "</br>";
+                        i++;
+                      }
+                    }
+                  </script>
+                
               </div>
-              <script>
-                function getList() {
-                  var values = $("#choices").val();
-                  var i = 0;
 
-                  var htmlstring = document.getElementById("list").innerHTML;
-                  htmlstring = htmlstring.trim
-                    ? htmlstring.trim()
-                    : htmlstring.replace(/^\s+/, "");
-                  if (htmlstring != "") {
-                    document.getElementById("list").innerHTML = " ";
-                  }
+              <div class= "col-6 col-md-6">
+                <div id="meals"></div>
+              </div>
 
-                  if (values.length == 0) {
-                    document.getElementById("list").innerHTML =
-                      "Nothing selected.";
-                  }
-                  while (i < values.length) {
-                    document.getElementById("list").innerHTML +=
-                      values[i] + "</br>";
-                    i++;
-                  }
-                }
-              </script>
+              
             </div>
-          </div>
-          <div class= "col-md-6 col-sm-6 col-6 text-left">
-            <div id="meals"></div>
-          </div>
-          </div>
+          
 
             
-            <div class="container-fluid" id="ingredients">
-              <div class="row">
-                <div class="col-md-6 col-sm-6 col-6 text-left" id="view">
+            
+              
+                
                   <!--view ing-->
                   <!--onclick = call function to find meals from db-->
 
@@ -238,7 +276,7 @@
                             */
 
                           document.getElementById("meals").innerHTML +=
-                            "<div class='card' style='width: 25rem;'><img src='assets/mcdonalds-chicken-nuggets-recipe.jpg' class='card-img-top' alt='AssociatedImage' padding='20px'><div class='card-body '><h5 class='card-title'>Meal/Recipe Name</h5><p class='card-text'>Insert nutrition facts</br> cooking time</br> food category?.</p><a href='#' class='btn btn-primary'>Link to Recipe</a><i class='heart fa fa-heart-o' id='heart'></i></div></div>";
+                            "<div class='card' style='width: 25rem;'><img src='assets/mcdonalds-chicken-nuggets-recipe.jpg' class='card-img-top' alt='AssociatedImage' padding='20px'><div class='card-body '><h5 class='card-title'>Meal/Recipe Name</h5><p class='card-text'>Insert nutrition facts</br> cooking time</br> food category?.</p><a href='#' class='btn btn-primary'>Link to Recipe</a><i class='heart fa fa-heart-o' id='heart'></i></div></div></br>";
                           $(".heart.fa").click(function () {
                             $(this).toggleClass("fa-heart fa-heart-o");
                           });
@@ -262,12 +300,9 @@
                       }
                     }
                   </script>
-                </div>
-
                 
-              </div>
-            </div>
-          </div>
+          </div>    
+
           <div
             class="tab-pane fade"
             id="nav-profile"
@@ -277,6 +312,7 @@
             <!--add buttons for unfavoriting-->
             <div id="favlist"></div>
           </div>
+
         </div>
       </div>
     </header>
