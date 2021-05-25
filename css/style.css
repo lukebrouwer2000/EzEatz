@@ -6,7 +6,7 @@
     --light-blue: #99ccff;
     --light-purple: #ccccff;
     --light-grey: #9999cc;
-    --light-yellow:#FFFFE0;
+    --light-yellow:#E6C570;
     --light-orange:#FED8B1;
     --purple: #cc99ff;
     --roboto: "Roboto", sans-sherif;
@@ -16,12 +16,12 @@
 
 /*global class that can be accessed w html file*/
 .light-blue{
-    color:var(--light-orange);
+    color:var(--light-yellow);
 }
 
 /*Overide previous css bg color*/
 .bg-light-blue{
-    background-color: var(--light-orange) !important;
+    background-color: var(--light-yellow) !important;
 }
 
 .light-purple{
@@ -35,7 +35,7 @@
 /*change the background&font*/
 /*header*/
 header{
-    background-color: var(--light-orange);
+    background-color: var(--light-yellow);
     font-family:var(--roboto);
 }
 
@@ -52,7 +52,7 @@ header .site-title{
 
 #nav-home{
 
-    background-color:var(--light-orange);
+    background-color:var(--light-yellow);
 }
 
 #nav-home-tab{
@@ -65,7 +65,7 @@ header .site-title{
 
 
 body{
-    background-color:var(--light-orange) !important;
+    background-color:var(--light-yellow) !important;
 }
 
 
