@@ -10,7 +10,34 @@
     $userName = $_SESSION["userName"];
     $userPassword = $_SESSION["userPassword"];
 
+    $sql = mysqli_query($mysqli, "SELECT * FROM Favorites WHERE userName = '$userName'");
 
+    $json = array();
+    while ($row = $sql->fetch_assoc()) {
+        $json[] = $row['userName'];
+
+    }
+
+    $sql = mysqli_query($mysqli, "SELECT * FROM Favorites WHERE userName = '$userName'");
+
+    $jsonPass = array();
+    while ($row = $sql->fetch_assoc()) {
+        $jsonPass[] = $row['meal'];
+
+    }
+    $meal =  empty($_GET['meal'])?'':$_GET['meal'];
+
+
+    // function ex()
+    // {
+    //   $sql = "INSERT INTO Favorites (
+    //       userName,
+    //       meals
+    //   )   VALUES (
+    //       '$userName',
+    //       '$meal
+    //   );";
+    // }
 
     mysqli_close($mysqli);
 ?>
@@ -208,7 +235,11 @@
                   <script src="RegisteredIndex.js"></script>
                 <div class="col-md-6 col-sm-6 col-6 text-left">
                   <!--Space for meals to be printed doc.getElementByID("meals").innerHTML-->
-                  <div id="meals"></div>
+                  <div id="meals">
+                    <!-- <form name="form" action="" method="get">
+                      <input type="text" name="heart" id="heart" value="Car Loan">
+                    </form> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -220,7 +251,23 @@
             aria-labelledby="nav-profile-tab"
           >
             <!--add buttons for unfavoriting-->
-            <div id="favlist"></div>
+            <div id="favlist">
+
+
+             <script type="text/javascript">
+              var array = <?= json_encode($json) ?>;
+              var arrayPass = <?= json_encode($jsonPass) ?>;
+                for (var i = 0; i < array.length; i++) {
+                  // document.getElementById("favlist").innerHTML +=
+                  //   "Favorites:" +  array[i] + arrayPass[i] + "</br>";
+                    if(arrayPass[i] == "chicken")
+                    {
+                      document.getElementById("favlist").innerHTML +=
+                      "<div class='card' style='width: 25rem;'><img src='assets/mcdonalds-chicken-nuggets-recipe.jpg' class='card-img-top' alt='AssociatedImage' padding='20px'><div class='card-body '><h5 class='card-title'>Chicken Nuggets</h5><p class='card-text'>Calories - 410 Sodium - 750mg Protein - 26g</br>Cooking Time - 35min</br>Food Category - Meat </p><a href='#' class='btn btn-primary'>Link to Recipe</a><a href='RemoveFavorites.php?meal=chicken'><i class='heart fa fa-heart-o' id='heart'></i></a></div></div>";
+                    }
+                }
+              </script>
+            </div>
           </div>
         </div>
       </div>
@@ -230,6 +277,83 @@
     <main></main>
     <footer></footer>
 
+    <script>
+
+      function getMeals() {
+        /*so meals arent repeated if button clicked again*/
+        var htmlstring = document.getElementById("meals")
+          .innerHTML;
+        htmlstring = htmlstring.trim
+          ? htmlstring.trim()
+          : htmlstring.replace(/^\s+/, "");
+        if (htmlstring != "") {
+          document.getElementById("meals").innerHTML = " ";
+        }
+
+        var ingredients = $("#choices").val();
+
+        // if (ingredients.length > 0) {
+        //   document.getElementById("meals").innerHTML +=
+        //     "MEALS FOUND:" + "</br>";
+        // }
+
+        var i = 0;
+        var found = 1;
+        while (i < ingredients.length) {
+          for (var i = 0; i < ingredients.length; i++) {
+            /*
+             document.getElementById("meals").innerHTML+="<a href='#'' class='meal' id="+i+" >A recipe or meal "+i+" </a>";
+              document.getElementById("meals").innerHTML+="&nbsp; &nbsp; &nbsp;"+"<button class='btn btn-outline-dark' id="+i+" onclick='addFav()'>Favorite</button>"+"</br>";
+              */
+            if(ingredients[i] == "Frozen chicken")
+            {
+              document.getElementById("meals").innerHTML +=
+                "MEALS FOUND:" + "</br>";
+              document.getElementById("meals").innerHTML +=
+              "<div class='card' style='width: 25rem;'><img src='assets/mcdonalds-chicken-nuggets-recipe.jpg' class='card-img-top' alt='AssociatedImage' padding='20px'><div class='card-body '><h5 class='card-title'>Chicken Nuggets</h5><p class='card-text'>Calories - 410 Sodium - 750mg Protein - 26g</br>Cooking Time - 35min</br>Food Category - Meat </p><a href='#' class='btn btn-primary'>Link to Recipe</a><a href='Favorites.php?meal=chicken'><i class='heart fa fa-heart-o' id='heart'></i></a></div></div>";
+              $(".heart.fa").click(function () {
+              $(this).toggleClass("fa-heart fa-heart-o");
+              alert(document.getElementsByClassName('card-title')[0].innerHTML + ' added to Favorites');
+              // alert('<?php
+              //     include "../ConnectDatabase.php";
+              //     $sql = "INSERT INTO Favorites (
+              //         userName,
+              //         meal
+              //     )   VALUES (
+              //         '$userName',
+              //         '$meal'
+              //     );";
+              //     mysqli_query($mysqli, $sql);
+              //   ?>');
+
+            });
+              found++;
+            }
+
+            document.addEventListener(
+              "DOMContentLoaded",
+              function() {
+                $("nav li").on("click", function() {
+                  // we are letting the li bind to the event
+                  alert("This works, though");
+                });
+              }
+            );
+
+            function addFav() {
+              console.log("Hello");
+              document.getElementById("favlist").innerHTML +=
+                "fav item";
+            }
+          }
+        }
+        if(found == 1)
+        {
+          document.getElementById("meals").innerHTML +=
+            "NO MEALS FOUND" + "</br>";
+        }
+      }
+    </script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
